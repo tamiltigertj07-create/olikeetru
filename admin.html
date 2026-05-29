@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ஒளிகீற்று - அட்மின் கட்டுப்பாட்டு அறை</title>
+    
+    <!-- கூகுள் தமிழ் ஃபான்ட் -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Mukta+Malar:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- அட்மின் பக்கத்திற்கான பிரத்யேக CSS இணைப்பு -->
+    <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+
+    <!-- 1. பாதுகாப்பான லாகின் திரை பகுதி -->
+    <div class="login-box" id="loginBox">
+        <img src="assets/logo.png" alt="ஒளிகீற்று" class="login-logo">
+        <h2>ஒளிகீற்று நிர்வாக உள்நுழைவு</h2>
+        <div class="error-msg" id="errorMsg">தவறான பயனர் பெயர் அல்லது கடவுச்சொல்!</div>
+        
+        <input type="text" id="username" placeholder="பயனர் பெயர் (Username)">
+        <input type="password" id="password" placeholder="கடவுச்சொல் (Password)">
+        <!-- நேரடியாக இங்கே ஆன்-கிளிக் ஃபங்க்ஷன் கொடுக்கப்பட்டுள்ளது -->
+        <button onclick="checkAdminLogin()">உள்நுழைக</button>
+        <p><a href="index.html" class="back-link">முகப்புப் பக்கத்திற்குத் திரும்புக</a></p>
+    </div>
+
+    <!-- 2. அட்மின் கட்டுப்பாட்டு அறை (வெற்றிகரமாக லாகின் செய்த பின் மட்டுமே தெரியும்) -->
+    <div class="dashboard-content" id="dashboardContent">
+        <div class="dash-header">
+            <h2>ஒளிகீற்று நிர்வாகக் கட்டுப்பாட்டு அறை</h2>
+            <button class="logout-btn" onclick="logoutAdmin()">வெளியேறுக</button>
+        </div>
+        
+        <p class="success-alert">✔ வெற்றிகரமாக உள்நுழைந்துள்ளீர்கள்!</p>
+        <hr>
+
+       <select id="sectionSelect">
+    <option value="news">அண்மைச் செய்திகள் (Latest News)</option>
+    <option value="history">மாவீரர் வரலாறு</option>
+    <option value="live">நேரலை வீடியோ லிங்க்</option>
+</select>
+
+
+            <div class="form-group">
+                <label>தலைப்பு அல்லது மாவீரர் பெயர்:</label>
+                <input type="text" id="contentTitle" placeholder="உதாரணம்: வீரமங்கை தனுஷா அல்லது UK மாவீரர் நாள் 2026">
+            </div>
+
+            <div class="form-group">
+                <label>விபரங்கள் / வீடியோ எம்பெடு கோட் (Details / Embed Code):</label>
+                <textarea id="contentDetails" rows="6" placeholder="இங்கே முழுமையான விபரங்களை எழுதவும் அல்லது YouTube Embed லிங்க்கை ஒட்டவும்..."></textarea>
+            </div>
+
+            <!-- கோப்பு ப்ரௌஸ் செய்யும் பகுதி -->
+            <div class="form-group">
+                <label>புகைப்படம் அல்லது கோப்பினைத் தேர்ந்தெடுக்கவும் (Browse File):</label>
+                <div class="file-upload-wrapper">
+                    <input type="file" id="fileInput" accept="image/*, video/*, .pdf" onchange="displayFileName()">
+                    <span class="custom-file-btn">Choose File</span>
+                    <span id="fileNameDisplay" style="color: #aaa; margin-left: 10px; font-size: 14px;">No file chosen</span>
+                </div>
+            </div>
+
+            <button class="publish-btn" id="publishBtn">இணையதளத்தில் புதுப்பிக்கவும் (Publish)</button>
+        </div>
+    </div>
+
+    <!-- லாகின் மற்றும் அவுட் செய்வதற்கான நேரடி ஜாவாஸ்கிரிப்ட் குறியீடு -->
+    <script>
+        function checkAdminLogin() {
+            var user = document.getElementById("username").value;
+            var pass = document.getElementById("password").value;
+            var error = document.getElementById("errorMsg");
+
+            if (user === "admin" && pass === "123") {
+                document.getElementById("loginBox").style.display = "none";
+                document.getElementById("dashboardContent").style.display = "block";
+                document.body.style.display = "block";
+                document.body.style.padding = "40px 20px";
+            } else {
+                error.style.display = "block";
+            }
+        }
+
+        function logoutAdmin() {
+            document.getElementById("username").value = "";
+            document.getElementById("password").value = "";
+            document.getElementById("errorMsg").style.display = "none";
+            
+            document.getElementById("loginBox").style.display = "block";
+            document.getElementById("dashboardContent").style.display = "none";
+            document.body.style.display = "flex";
+        }
+
+        function displayFileName() {
+            var fileInput = document.getElementById("fileInput");
+            var fileNameDisplay = document.getElementById("fileNameDisplay");
+            if (fileInput.files.length > 0) {
+                fileNameDisplay.textContent = fileInput.files[0].name;
+                fileNameDisplay.style.color = "#00ff00";
+            } else {
+                fileNameDisplay.textContent = "No file chosen";
+                fileNameDisplay.style.color = "#aaa";
+            }
+        }
+    </script>
+
+    <!-- ஃபயர்பேஸ் தரவுத்தள இணைப்புக்கான மாடில் -->
+    <script type="module" src="admin-script.js"></script>
+</body>
+</html>

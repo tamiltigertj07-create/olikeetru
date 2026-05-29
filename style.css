@@ -1,0 +1,273 @@
+/* முழுமையான கருப்பு மற்றும் மஞ்சள் அரசுத் தள வடிவமைப்பு */
+body { 
+    font-family: 'Mukta Malar', Arial, sans-serif; 
+    margin: 0; 
+    padding: 0; 
+    background-color: #0b0b0b; 
+    color: #fff;
+    overflow-x: hidden;
+}
+
+/* 1. டாப் பார் மெனு */
+.top-navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.85);
+    padding: 15px 30px;
+    position: absolute;
+    width: 100%;
+    top: 0; left: 0;
+    z-index: 100;
+    box-sizing: border-box;
+}
+
+/* 3 கோடுகள் கொண்ட மெனு பட்டன் */
+.menu-icon {
+    cursor: pointer;
+    display: block;
+}
+.menu-icon div {
+    width: 32px;
+    height: 4px;
+    background-color: #ffcc00; 
+    margin: 6px 0;
+    transition: 0.4s;
+    border-radius: 2px;
+}
+
+/* டிராப்-டவுன் மெனு பேனல் */
+.nav-links {
+    display: none;
+    position: absolute;
+    top: 65px;
+    right: 30px;
+    background-color: rgba(15, 15, 15, 0.98);
+    border: 1px solid #ffcc00;
+    border-radius: 8px;
+    box-shadow: 0px 8px 25px rgba(255, 204, 0, 0.2);
+    padding: 10px 0;
+    width: 220px;
+    text-align: left;
+}
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 20px;
+    display: block;
+    font-weight: bold;
+    font-size: 16px;
+    transition: 0.3s;
+    border-bottom: 1px solid #222;
+}
+.nav-links a:last-child { border-bottom: none; }
+.nav-links a:hover {
+    background-color: #ffcc00;
+    color: #000;
+}
+
+/* 2. ஹீரோ செக்ஷன் (ஸ்லைடு ஷோ பகுதி) */
+.hero-section {
+    position: relative;
+    height: 560px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.bg-slider {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background-size: cover;
+    background-position: left center;
+    z-index: 1;
+    /* இம்முறை url() ஃபங்க்ஷனைச் சரியாகச் சேர்த்துள்ளோம் */
+    background-image: url('assets/bg.jpeg'); 
+}
+
+
+.bg-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.5) 0%, rgba(11,11,11,1) 100%);
+    z-index: 2;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+    max-width: 850px;
+    padding: 0 20px;
+    margin-top: 40px;
+}
+
+.gov-style-logo {
+    width: 160px;
+    height: auto;
+    margin-bottom: 15px;
+    filter: drop-shadow(0px 4px 10px rgba(255, 204, 0, 0.5)); 
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin: 0;
+    color: #fff;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-shadow: 2px 4px 10px rgba(0, 0, 0, 0.9);
+}
+
+.hero-content .vasakam {
+    font-size: 1.6rem;
+    margin: 12px 0 35px 0;
+    color: #ffcc00; 
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 8px rgba(0,0,0,1);
+}
+
+/* 3. மாஸ் தேடல் பெட்டி */
+.search-container {
+    display: flex;
+    background: rgba(255, 255, 255, 0.08);
+    border: 2px solid #ffcc00; 
+    border-radius: 30px; 
+    overflow: hidden;
+    box-shadow: 0px 10px 30px rgba(255,204,0,0.15);
+    max-width: 680px;
+    margin: 0 auto;
+    backdrop-filter: blur(10px);
+}
+.search-container input {
+    flex: 1;
+    padding: 18px 25px;
+    border: none;
+    font-size: 17px;
+    outline: none;
+    background: transparent;
+    color: #fff;
+    font-family: 'Mukta Malar', sans-serif;
+}
+.search-container input::placeholder {
+    color: #bbb;
+}
+.search-container button {
+    background-color: #ffcc00; 
+    color: #000;
+    border: none;
+    padding: 0 40px;
+    font-size: 17px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s;
+    font-family: 'Mukta Malar', sans-serif;
+}
+.search-container button:hover { 
+    background-color: #fff;
+}
+
+/* 4. கிரிட் சேவைகள் பகுதி */
+.services-section {
+    background-color: #0b0b0b;
+    color: white;
+    padding: 10px 20px 80px 20px;
+    text-align: center;
+}
+.services-section h2 {
+    font-size: 2.4rem;
+    margin-bottom: 45px;
+    font-weight: 800;
+    color: #ffcc00;
+    position: relative;
+    display: inline-block;
+}
+.services-section h2::after {
+    content: '';
+    display: block;
+    width: 50%;
+    height: 3px;
+    background: #ffcc00;
+    margin: 10px auto 0 auto;
+}
+
+/* 100% துல்லியமாக பெட்டிகளை நேராக்கும் கிரிட் வடிவமைப்பு */
+.services-grid {
+    display: flex;
+    gap: 30px;
+    max-width: 1150px;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: stretch; /* அனைத்து பெட்டிகளையும் ஒரே உயரத்திற்கு நேராக்கும் முக்கிய வரி */
+    flex-wrap: wrap;
+}
+
+.service-box {
+    background: #121212;
+    color: #fff;
+    padding: 40px 25px;
+    border-radius: 8px;
+    width: 290px;
+    min-height: 180px; /* பெட்டிகளுக்கு நிலையான குறைந்தபட்ச உயரத்தை அளிக்கிறது */
+    border: 1px solid #222;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+    transition: 0.4s;
+    text-align: center;
+    box-sizing: border-box; /* பேடிங் அளவினால் பாக்ஸ் சைஸ் மாறாமல் தடுக்கும் */
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+    border-color: #ffcc00; 
+    box-shadow: 0 15px 30px rgba(255,204,0,0.1);
+}
+
+.service-box h3 {
+    color: #ffcc00;
+    margin-top: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+.service-box p {
+    font-size: 15px;
+    color: #aaa;
+    line-height: 1.6;
+}
+
+footer {
+    background: #000;
+    color: #555;
+    text-align: center;
+    padding: 25px;
+    font-size: 14px;
+    border-top: 1px solid #111;
+}
+/* அண்மைச் செய்திகள் பகுதி வடிவமைப்பு */
+.news-container {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 25px;
+    background: #121212;
+    border: 2px solid #ffcc00;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(255,204,0,0.1);
+}
+.news-container h2 {
+    color: #ffcc00;
+    margin-top: 0;
+    font-size: 1.8rem;
+    border-bottom: 2px solid #222;
+    padding-bottom: 10px;
+}
+.news-card {
+    background: #1a1a1a;
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    border-left: 4px solid #ffcc00;
+}
+.news-card h4 { color: #ffcc00; margin: 0 0 5px 0; font-size: 1.2rem; }
+.news-card p { color: #ccc; margin: 0; font-size: 15px; line-height: 1.5; }

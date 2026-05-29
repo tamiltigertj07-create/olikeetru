@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ஒளிகீற்று ஊடகம்</title>
+    
+    <!-- கூகுள் தமிழ் ஃபான்ட் -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Mukta+Malar:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- 1. டாப் பார் மெனு (மாற்றியமைக்கப்பட்ட குறியீடு) -->
+    <div class="top-navbar">
+        <!-- onclick-ஐ நீக்கிவிட்டு id கொடுத்துள்ளோம் -->
+        <div class="menu-icon" id="menuBtn">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="nav-links" id="menuLinks">
+            <a href="#">முகப்பு</a>
+            <a href="#news-section">அண்மைச் செய்திகள்</a>
+            <a href="#services">ஆவணக் காப்பகம்</a>
+            <a href="admin.html" style="color: #ffcc00;">அட்மின் பக்கம்</a>
+        </div>
+    </div>
+
+
+    <!-- 2. ஹீரோ & பின்னணிப் படம் பகுதி -->
+    <div class="hero-section">
+        <div class="bg-slider" id="slider"></div>
+        <div class="bg-overlay"></div>
+        
+        <div class="hero-content">
+            <img src="C:\Users\thusi\Downloads\Picsart_26-05-27_15-25-55-067.png" alt="ஒளிகீற்று சின்னம்" class="gov-style-logo">
+            <h1>ஒளிகீற்று ஊடகம்</h1>
+            <p class="vasakam">"விழி மூடியவர்கள் விழியாக..."</p>
+            
+            <div class="search-container">
+                <input type="text" placeholder="மாவீரர் பெயர் அல்லது வரலாற்றைத் தேடுக...">
+                <button>தேடுக</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3. அண்மைச் செய்திகள் பிரிவு (புதிதாகச் சேர்க்கப்பட்டது) -->
+    <div class="news-container" id="news-section">
+        <h2> அண்மைச் செய்திகள் (Latest News)</h2>
+        <div id="liveNewsArea">
+            <p style="color: #aaa; text-align: center;">செய்திகள் லோட் ஆகிறது...</p>
+        </div>
+    </div>
+
+    <!-- 4. கிரிட் சேவைகள் பகுதி (டேட்டாபேஸ் தகவல்கள் இங்கே தான் வந்து விழும்) -->
+    <div class="services-section" id="services">
+        <h2>ஆவணக் காப்பகம் மற்றும் சேவைகள்</h2>
+        <div class="services-grid" id="liveArchiveArea">
+            
+            <!-- ஆரம்பத்தில் காட்டும் தற்காலிகப் பெட்டிகள் -->
+            <div class="service-box">
+                <h3>மாவீரர் வரலாறு</h3>
+                <p>அட்மின் பக்கத்தில் பதிவேற்றப்படும் மாவீரர் வரலாறுகள் இங்கே நேரடியாகப் புதுப்பிக்கப்படும்.</p>
+            </div>
+            
+            <div class="service-box">
+                <h3>நேரலை ஒளிபரப்பு</h3>
+                <p>முள்ளிவாய்க்கால் நினைவு நாள் மற்றும் UK மாவீரர் நாள் நிகழ்வுகளின் நேரடி ஒளிபரப்பு பகுதி.</p>
+            </div>
+
+            <div class="service-box">
+                <h3>ஊடகப் பிரிவு</h3>
+                <p>வரலாற்றுக் காப்பகப் புகைப்படங்கள், நினைவு ஒளிநாடாக்கள் மற்றும் பிரத்யேகச் செய்திகள்.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 ஒளிகீற்று ஊடகம். அனைத்து உரிமைகளும் பாதுகாக்கப்பட்டவை.</p>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
